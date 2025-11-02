@@ -2,7 +2,7 @@
 
 
 
-int CountEven(int iNo)
+int CountRange(int iNo)
 {
     int iDigit  = 0;
     int iCount = 0;
@@ -11,7 +11,7 @@ int CountEven(int iNo)
     {
         
         iDigit = iNo % 10;
-        if((iDigit % 2) == 0)
+        if((iDigit > 3 && iDigit < 7))
         {
             iCount++;
         }
@@ -30,7 +30,7 @@ int main()
     printf("Enter number :");
     scanf("%d",&iValue);
 
-    iRet = CountEven(iValue);
+    iRet = CountRange(iValue);
 
     printf("%d",iRet);
 

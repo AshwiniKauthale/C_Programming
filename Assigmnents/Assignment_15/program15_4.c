@@ -2,22 +2,23 @@
 
 
 
-int CountEven(int iNo)
+int MultDigits(int iNo)
 {
     int iDigit  = 0;
-    int iCount = 0;
+    int iAns = 0;
+    iAns = 1;
 
     while(iNo != 0)
     {
         
         iDigit = iNo % 10;
-        if((iDigit % 2) == 0)
+        if((iDigit != 0))
         {
-            iCount++;
+            iAns = iAns * iDigit;
         }
         iNo = iNo / 10;
     }
-    return iCount;
+    return iAns;
 }
 
 // Time Complixity = O(N)
@@ -30,7 +31,7 @@ int main()
     printf("Enter number :");
     scanf("%d",&iValue);
 
-    iRet = CountEven(iValue);
+    iRet = MultDigits(iValue);
 
     printf("%d",iRet);
 

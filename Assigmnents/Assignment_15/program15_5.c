@@ -2,10 +2,12 @@
 
 
 
-int CountEven(int iNo)
+int CountDiff(int iNo)
 {
     int iDigit  = 0;
-    int iCount = 0;
+    int iAns = 0;
+    int iSum = 0;
+    int iSub = 0;
 
     while(iNo != 0)
     {
@@ -13,11 +15,16 @@ int CountEven(int iNo)
         iDigit = iNo % 10;
         if((iDigit % 2) == 0)
         {
-            iCount++;
+            iSum = iSum + iDigit;
+        }
+        else
+        {
+            iSub = iSub + iDigit;
         }
         iNo = iNo / 10;
     }
-    return iCount;
+    iAns = iSum - iSub;
+    return iAns;
 }
 
 // Time Complixity = O(N)
@@ -30,7 +37,7 @@ int main()
     printf("Enter number :");
     scanf("%d",&iValue);
 
-    iRet = CountEven(iValue);
+    iRet = CountDiff(iValue);
 
     printf("%d",iRet);
 
