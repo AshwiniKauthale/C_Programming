@@ -1,20 +1,17 @@
 #include<stdio.h>
 
-void Pattern(int iNo)
+void OddDisplay(int iNo)
 {
     int iCnt = 0;
 
-    if(iNo < 0)
-    {
-        iNo = -iNo;
-    }
-
     for(iCnt = 1; iCnt <= iNo; iCnt++)
     {
-        printf("$\t*\t");
+        if((iCnt % 2) != 0)
+        {
+            printf("%d\t",iCnt);
+        }
     }
 }
-
 // Time Complixity = O(N)
 
 
@@ -24,7 +21,7 @@ int main()
     printf("Enter number :");
     scanf("%d",&iValue);
 
-    Pattern(iValue);
+    OddDisplay(iValue);
 
     return 0;
 }

@@ -1,17 +1,12 @@
 #include<stdio.h>
 
-void Pattern(int iNo)
+void MultipleDisplay(int iNo)
 {
     int iCnt = 0;
 
-    if(iNo < 0)
+    for(iCnt = 1; iCnt <= 5; iCnt++)
     {
-        iNo = -iNo;
-    }
-
-    for(iCnt = 1; iCnt <= iNo; iCnt++)
-    {
-        printf("$\t*\t");
+        printf("%d\t",iNo * iCnt);
     }
 }
 
@@ -24,7 +19,7 @@ int main()
     printf("Enter number :");
     scanf("%d",&iValue);
 
-    Pattern(iValue);
+    MultipleDisplay(iValue);
 
     return 0;
 }

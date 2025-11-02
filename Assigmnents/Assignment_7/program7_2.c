@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-void Pattern(int iNo)
+void Display(int iNo)
 {
     int iCnt = 0;
 
@@ -11,7 +11,7 @@ void Pattern(int iNo)
 
     for(iCnt = 1; iCnt <= iNo; iCnt++)
     {
-        printf("$\t*\t");
+        printf("%d\t",iCnt);
     }
 }
 
@@ -24,7 +24,7 @@ int main()
     printf("Enter number :");
     scanf("%d",&iValue);
 
-    Pattern(iValue);
+    Display(iValue);
 
     return 0;
 }
