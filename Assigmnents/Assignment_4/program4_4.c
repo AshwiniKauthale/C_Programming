@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-int MultFact(int iNo)
+int SumNonFact(int iNo)
 {
     int iCnt = 0;
     int iAns = 0;
@@ -9,13 +9,12 @@ int MultFact(int iNo)
     {
         iNo = -iNo;
     }
-    iAns = 1;
     
-    for(iCnt = 1; iCnt <= iNo/2; iCnt++)
+    for(iCnt = 1; iCnt <= iNo; iCnt++)
     {
-        if((iNo % iCnt) == 0)
+        if((iNo % iCnt) != 0)
         {
-            iAns = iAns*iCnt;
+            iAns = iAns+iCnt;
 
         }
     }
@@ -30,7 +29,7 @@ int main()
     printf("Enter Number :");
     scanf("%d",&iValue);
 
-    iRet = MultFact(iValue);
+    iRet = SumNonFact(iValue);
 
     printf("%d",iRet);
 
