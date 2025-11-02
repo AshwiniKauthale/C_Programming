@@ -21,6 +21,8 @@ void Display()
     }
 }
 
+// Time complixity : O(N)
+
 int main()
 {
     Display();
