@@ -1,12 +1,15 @@
 #include<stdio.h>
 
-void print_numbers(int iNo)
+void print_even_numbers(int iNo)
 {
     int iCnt = 0;
 
     for(iCnt = 1; iCnt <= iNo; iCnt++)
     {
-        printf("%d\t",iCnt);
+        if((iCnt % 2) == 0)
+        {
+            printf("%d\t",iCnt);
+        }
     }
 }
 
@@ -19,7 +22,7 @@ int main()
     printf("Enter Number :");
     scanf("%d",&iNumber);
 
-    print_numbers(iNumber);
+    print_even_numbers(iNumber);
 
     return 0;
 }
