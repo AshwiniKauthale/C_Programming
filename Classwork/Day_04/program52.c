@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-int CountFactors(int iNo)
+int CountNonFactors(int iNo)
 {
     int iCnt = 0, iFrequancy = 0;
 
@@ -8,9 +8,9 @@ int CountFactors(int iNo)
     {
         iNo = -iNo;
     }
-    for(iCnt = 1; iCnt <= (iNo/2); iCnt++)
+    for(iCnt = 1; iCnt < iNo; iCnt++)
     {
-        if((iNo % iCnt) == 0)
+        if((iNo % iCnt) != 0)
         {
             iFrequancy++;
         }
@@ -25,9 +25,9 @@ int main()
     printf("Enter the number : \n");
     scanf("%d",&iValue);
 
-    iRet = CountFactors(iValue);
+    iRet = CountNonFactors(iValue);
 
-    printf("Number of factors are : %d\n",iRet);
+    printf("Number of non factors are : %d\n",iRet);
 
 
     return 0;
