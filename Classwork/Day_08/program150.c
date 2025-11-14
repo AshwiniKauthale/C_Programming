@@ -1,16 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef int * IPTR;
+
+void ReverseDisplay(int Arr[],int iSize)
+{
+    int iCnt = 0;
+
+    for(iCnt = iSize -1 ; iCnt > 0; iCnt--)
+    {
+        printf("%d\n",Arr[iCnt]);
+    }
+
+}
+
 int main()
 {
-    int iLength = 0, iCnt = 0;
-    int *iPtr = NULL;
+    int iLength = 0, iCnt = 0,iValue = 0,iRet = 0;
+    IPTR iPtr = NULL;
 
     printf("Enter the number of elements : \n");
     scanf("%d",&iLength);
 
     // Step 1 : Allocate the memory
-    iPtr = (int *)malloc(iLength * sizeof(int));
+    iPtr = (IPTR)malloc(iLength * sizeof(int));
 
     if(NULL == iPtr)
     {
@@ -25,9 +38,7 @@ int main()
     }
 
     // Step 2 : Use the Memory
-    // Call to the function which contains business logic
-    // Fun(iPtr,iLength)
-
+    ReverseDisplay(iPtr,iLength);
 
     // Step 3 : Free tthe memory
     free(iPtr);

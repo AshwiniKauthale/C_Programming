@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef int * IPTR;
 int main()
 {
     int iLength = 0, iCnt = 0;
-    int *iPtr = NULL;
+    IPTR iPtr = NULL;
 
     printf("Enter the number of elements : \n");
     scanf("%d",&iLength);
 
     // Step 1 : Allocate the memory
-    iPtr = (int *)malloc(iLength * sizeof(int));
+    iPtr = (IPTR)malloc(iLength * sizeof(int));
 
     if(NULL == iPtr)
     {

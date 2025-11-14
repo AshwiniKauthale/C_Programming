@@ -1,16 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef int * IPTR;
+
+int FrequancyCalculate(int Arr[],int iSize)
+{
+    int iCnt = 0, iCount = 0;
+
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        if(Arr[iCnt] == 11)
+        {
+            iCount++;
+        }
+    }
+
+    return iCount;
+}
 int main()
 {
-    int iLength = 0, iCnt = 0;
-    int *iPtr = NULL;
+    int iLength = 0, iCnt = 0,iRet = 0;
+    IPTR iPtr = NULL;
 
     printf("Enter the number of elements : \n");
     scanf("%d",&iLength);
 
     // Step 1 : Allocate the memory
-    iPtr = (int *)malloc(iLength * sizeof(int));
+    iPtr = (IPTR)malloc(iLength * sizeof(int));
 
     if(NULL == iPtr)
     {
@@ -25,8 +41,8 @@ int main()
     }
 
     // Step 2 : Use the Memory
-    // Call to the function which contains business logic
-    // Fun(iPtr,iLength)
+    iRet = FrequancyCalculate(iPtr,iLength);
+    printf("Frequency of 11 is : %d",iRet);
 
 
     // Step 3 : Free tthe memory

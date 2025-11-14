@@ -1,16 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef int * IPTR;
+
+int Maximum(int Arr[],int iSize)
+{
+    int iCnt = 0,iMax = 0;
+    iMax = Arr[0];            // Important
+
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        if(Arr[iCnt] > iMax)
+        {
+            iMax = Arr[iCnt];
+        }
+    }
+    return iMax;
+}
+
 int main()
 {
-    int iLength = 0, iCnt = 0;
-    int *iPtr = NULL;
+    int iLength = 0, iCnt = 0,iValue = 0,iRet = 0;
+    IPTR iPtr = NULL;
 
     printf("Enter the number of elements : \n");
     scanf("%d",&iLength);
 
     // Step 1 : Allocate the memory
-    iPtr = (int *)malloc(iLength * sizeof(int));
+    iPtr = (IPTR)malloc(iLength * sizeof(int));
 
     if(NULL == iPtr)
     {
@@ -25,9 +42,9 @@ int main()
     }
 
     // Step 2 : Use the Memory
-    // Call to the function which contains business logic
-    // Fun(iPtr,iLength)
+    iRet = Maximum(iPtr,iLength);
 
+    printf("Maximum number is : %d\n",iRet);
 
     // Step 3 : Free tthe memory
     free(iPtr);
