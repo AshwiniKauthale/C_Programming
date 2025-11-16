@@ -1,9 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int Maximum(int Arr[], int iLength)
+int Difference(int Arr[], int iLength)
 {
-    int iCnt = 0, iMax = Arr[0];
+    int iCnt = 0, iMax = Arr[0],iMin = Arr[0], iAns = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
@@ -12,7 +12,17 @@ int Maximum(int Arr[], int iLength)
             iMax = Arr[iCnt];
         }
     }
-    return iMax;
+    
+    for(iCnt = 0; iCnt < iLength; iCnt++)
+    {
+        if(Arr[iCnt] < iMin)
+        {
+            iMin = Arr[iCnt];
+        }
+    }
+
+    iAns = iMax - iMin;
+    return iAns;
 }
 
 int main()
@@ -37,8 +47,8 @@ int main()
         scanf("%d",&ptr[iCnt]);
     }
 
-    iRet = Maximum(ptr,iSize);
-    printf("Largest number is %d ",iRet);
+    iRet = Difference(ptr,iSize);
+    printf("Difference is %d ",iRet);
 
     free(ptr);
 
