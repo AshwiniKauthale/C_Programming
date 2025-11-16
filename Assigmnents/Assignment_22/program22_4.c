@@ -1,13 +1,14 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
-int CountEven(int Arr[], int iLength)
+int Frequancy(int Arr[], int iLength)
 {
-    int iCnt = 0, iCount = 0;
+    int iCnt = 0,iCount = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if((Arr[iCnt] % 2) == 0)
+        if(Arr[iCnt]  == 11)
         {
             iCount++;
         }
@@ -17,7 +18,7 @@ int CountEven(int Arr[], int iLength)
 
 int main()
 {
-    int iSize = 0, iRet = 0, iCnt = 0;
+    int iSize = 0, iCnt = 0, iRet = 0;
     int *ptr = NULL;
 
     printf("Enter number of elements : ");
@@ -37,9 +38,8 @@ int main()
         scanf("%d",&ptr[iCnt]);
     }
 
-    iRet = CountEven(ptr,iSize);
-
-    printf("Total even numbers are : %d",iRet);
+    iRet = Frequancy(ptr,iSize);
+    printf("Total frequancy is : %d",iRet);
 
     free(ptr);
 

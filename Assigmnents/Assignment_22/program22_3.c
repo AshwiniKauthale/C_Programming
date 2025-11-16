@@ -1,23 +1,33 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
-int CountEven(int Arr[], int iLength)
+bool Check(int Arr[], int iLength)
 {
-    int iCnt = 0, iCount = 0;
+    int iCnt = 0,iCount = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if((Arr[iCnt] % 2) == 0)
+        if(Arr[iCnt]  == 11)
         {
             iCount++;
+            break;
         }
     }
-    return iCount;
+    if(iCount > 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 int main()
 {
-    int iSize = 0, iRet = 0, iCnt = 0;
+    int iSize = 0, iCnt = 0;
+    bool bRet = false;
     int *ptr = NULL;
 
     printf("Enter number of elements : ");
@@ -37,10 +47,16 @@ int main()
         scanf("%d",&ptr[iCnt]);
     }
 
-    iRet = CountEven(ptr,iSize);
+    bRet = Check(ptr,iSize);
 
-    printf("Total even numbers are : %d",iRet);
-
+    if(bRet == true)
+    {
+        printf("11 is present");
+    }
+    else
+    {
+        printf("11 is absent");
+    }
     free(ptr);
 
     return 0;

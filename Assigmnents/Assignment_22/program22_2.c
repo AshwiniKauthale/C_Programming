@@ -1,18 +1,23 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int CountEven(int Arr[], int iLength)
+int Frequancy(int Arr[], int iLength)
 {
-    int iCnt = 0, iCount = 0;
+    int iCnt = 0,iCountSum = 0, iCountDiff = 0,iAns = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
         if((Arr[iCnt] % 2) == 0)
         {
-            iCount++;
+            iCountSum++;
+        }
+        else
+        {
+            iCountDiff++;
         }
     }
-    return iCount;
+    iAns = iCountSum - iCountDiff;
+    return iAns;
 }
 
 int main()
@@ -37,9 +42,9 @@ int main()
         scanf("%d",&ptr[iCnt]);
     }
 
-    iRet = CountEven(ptr,iSize);
+    iRet = Frequancy(ptr,iSize);
 
-    printf("Total even numbers are : %d",iRet);
+    printf("Frequancy is : %d",iRet);
 
     free(ptr);
 
