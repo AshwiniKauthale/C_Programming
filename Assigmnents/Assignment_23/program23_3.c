@@ -1,28 +1,23 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include <stdbool.h>
 
-typedef int BOOL;
-
-BOOL Frequancy(int Arr[], int iSize,int iNo)
+int LastOcc(int Arr[], int iLength,int iNo)
 {
-    int iCnt = 0;
+    int iCnt = 0,iCount = 0;
 
-    for(iCnt = 0; iCnt < iSize; iCnt++)
+    for(iCnt = iLength - 1; iCnt >= 0; iCnt--)
     {
-        if(Arr[iCnt] == iNo)
+        if(Arr[iCnt]  == iNo)
         {
-            break;
+            return iCnt;
         }
     }
-
-    return(iCnt != iSize);
+    return -1;
 }
 
 int main()
 {
-    int iSize = 0, iCnt = 0, iValue = 0;
-    BOOL bRet = false;
+    int iSize = 0, iCnt = 0, iValue = 0,iRet = 0;
     int *ptr = NULL;
 
     printf("Enter number of elements : ");
@@ -45,15 +40,15 @@ int main()
         scanf("%d",&ptr[iCnt]);
     }
 
-    bRet = Frequancy(ptr,iSize,iValue);
+    iRet = LastOcc(ptr,iSize,iValue);
     
-    if(bRet == true)
+    if(iRet == -1)
     {
-        printf("Number is present");
+        printf("There is no such number : %d",iRet);
     }
     else
     {
-        printf("Number is not present");
+        printf("Last occurance of that number is : %d",iRet);
     }
 
     free(ptr);

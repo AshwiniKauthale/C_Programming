@@ -1,35 +1,28 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include <stdbool.h>
+#include<stdbool.h>
 
-typedef int BOOL;
-
-BOOL Frequancy(int Arr[], int iSize,int iNo)
+int Product(int Arr[], int iLength)
 {
-    int iCnt = 0;
+    int iCnt = 0,iProduct = 1;
 
-    for(iCnt = 0; iCnt < iSize; iCnt++)
+    for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] == iNo)
+        if((Arr[iCnt] % 2)  == 1)
         {
-            break;
+            iProduct = iProduct * Arr[iCnt];
         }
     }
-
-    return(iCnt != iSize);
+    return iProduct;
 }
 
 int main()
 {
-    int iSize = 0, iCnt = 0, iValue = 0;
-    BOOL bRet = false;
+    int iSize = 0, iCnt = 0, iRet = 0;
     int *ptr = NULL;
 
     printf("Enter number of elements : ");
     scanf("%d",&iSize);
-
-    printf("Enter one number : ");
-    scanf("%d",&iValue);
 
     ptr = (int *)malloc(iSize * sizeof(int));
     if(ptr == NULL)
@@ -45,15 +38,15 @@ int main()
         scanf("%d",&ptr[iCnt]);
     }
 
-    bRet = Frequancy(ptr,iSize,iValue);
-    
-    if(bRet == true)
+    iRet = Product(ptr,iSize);
+
+    if(iRet == 1)
     {
-        printf("Number is present");
+        printf("Product is : 0");
     }
     else
     {
-        printf("Number is not present");
+        printf("Product is : %d",iRet);
     }
 
     free(ptr);
