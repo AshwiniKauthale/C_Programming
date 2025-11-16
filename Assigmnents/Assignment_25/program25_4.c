@@ -1,29 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int Difference(int Arr[],int iSize)
+void Display(int Arr[],int iSize)
 {
-    int iCnt = 0,iEven = 0,iOdd = 0,iAns = 0;
+    int iCnt = 0;
 
     for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-        if((Arr[iCnt] % 2) == 0)
+        if((Arr[iCnt] % 3) == 0 && (Arr[iCnt] % 5) == 0)
         {
-            iEven = iEven + Arr[iCnt];
-        }
-        else
-        {
-            iOdd = iOdd + Arr[iCnt];
+            printf("%d\t",Arr[iCnt]);
         }
     }
-
-    iAns = iEven - iOdd;
-    return iAns;
 }
 
 int main()
 {
-    int iLength = 0, iCnt = 0,iRet = 0;
+    int iLength = 0, iCnt = 0;
     int *Ptr = NULL;
 
     printf("Enter number of elements : ");
@@ -44,8 +37,7 @@ int main()
         scanf("%d",&Ptr[iCnt]);
     }
 
-    iRet = Difference(Ptr,iLength);
-    printf("Difference is : %d",iRet);
+    Display(Ptr,iLength);
 
     free(Ptr);
 
