@@ -18,9 +18,13 @@ void Display(int iRow,int iCol)
             {
                 printf("#\t");
             }
-            else
+            else if(j < iCol - i + 1)
             {
                 printf("*\t");
+            }
+            else
+            {
+                printf("@\t");
             }
         }
         printf("\n");

@@ -14,14 +14,15 @@ void Display(int iRow,int iCol)
     {
         for(j = 1; j <= iCol; j++)
         {
-            if(j == iCol -i + 1)
+            if(j == i || i == 1 || i == iRow || j == 1 || j == iCol)
             {
-                printf("#\t");
+                printf("%d\t",j);
             }
             else
             {
-                printf("*\t");
+                printf("\t");
             }
+            
         }
         printf("\n");
     }
