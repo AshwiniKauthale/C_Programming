@@ -12,9 +12,12 @@ void Display(int iRow,int iCol)
 
     for(i = 1; i <= iRow; i++)
     {
-        for(j = 1; j <= i; j++)
+        for(j = 1; j <= iCol; j++)
         {
-            printf("*\t");
+            if(j <= iCol - i + 1)
+            {
+                printf("*\t");
+            }
         }
         printf("\n");
     }
