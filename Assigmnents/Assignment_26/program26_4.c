@@ -3,11 +3,9 @@
 void Display(int iNo)
 {
     int iCnt = 0;
-    char cCh = 'A';
     for(iCnt = 1; iCnt <= iNo; iCnt++)
     {
-        printf("%c\t",cCh);
-        cCh++;
+        printf(" # \t % d\t *\t",iCnt);
     }
 }
 
