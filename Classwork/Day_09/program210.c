@@ -2,7 +2,7 @@
 
 int main()
 {
-    char Arr[] = "Hello";
+    char Arr[] = {'H','e','l','l','o','\0'};
 
     printf("%s\n",Arr);
 
