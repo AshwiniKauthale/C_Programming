@@ -10,8 +10,8 @@
 
 
 //
-//  Function Name : CountCapital
-//  Description :   Count number of capital character from string
+//  Function Name : CountSmall
+//  Description :   Count number of small character from string
 //  Input :         Character
 //  Output :        integer
 //  Author :        Ashwini Vishnu Kauthale
@@ -19,12 +19,12 @@
 //
 ////////////////////////////////////////////////////////////////////
 
-int CountCapital(char *str)
+int CountSmall(char *str)
 {
     int iCount = 0;
     while(*str != '\0')
     {
-        if((*str >= 'A') && (*str <= 'Z'))
+        if((*str >= 'a') && (*str <= 'z'))
         {
             iCount++;
         }
@@ -47,8 +47,8 @@ int main()
     printf("Enter string :\n");
     scanf("%[^'\n]s",Arr);
 
-    iRet = CountCapital(Arr);
-    printf("Total capital character are : %d\n",iRet);
+    iRet = CountSmall(Arr);
+    printf("Total small character are : %d\n",iRet);
 
     return 0;
 
@@ -58,8 +58,8 @@ int main()
 //
 //           Input         Output
 //
-//          MarvellOUS      4
-//          HEllO           3
+//          MarvellOUS      6
+//          HEllO           2
 //
 ////////////////////////////////////////////////////////////////////
 

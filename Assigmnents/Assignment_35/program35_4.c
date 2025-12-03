@@ -5,32 +5,36 @@
 ////////////////////////////////////////////////////////////////////
 
 #include<stdio.h>
+# define TRUE 1
+# define FALSE 0
+
+typedef int BOOL;
 
 ////////////////////////////////////////////////////////////////////
 
 
 //
-//  Function Name : CountCapital
-//  Description :   Count number of capital character from string
+//  Function Name : ChkVowel
+//  Description :   Check given String contain vowel or not
 //  Input :         Character
-//  Output :        integer
+//  Output :        Boolean
 //  Author :        Ashwini Vishnu Kauthale
-//  Date :          27/11/2025
+//  Date :          28/11/2025
 //
 ////////////////////////////////////////////////////////////////////
 
-int CountCapital(char *str)
+BOOL ChkVowel(char str[])
 {
-    int iCount = 0;
     while(*str != '\0')
     {
-        if((*str >= 'A') && (*str <= 'Z'))
+        if((*str == 'a') || (*str == 'e') || (*str == 'i') || (*str== 'o') || (*str == 'u') ||
+        (*str == 'A') || (*str == 'E') || (*str == 'I') || (*str == 'O') || (*str == 'U'))
         {
-            iCount++;
+            return TRUE;
         }
-        *str++;
+        str++;
     }
-    return iCount;
+    return FALSE;
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -42,24 +46,30 @@ int CountCapital(char *str)
 int main()
 {
     char Arr[20];
-    int iRet = 0;
+    BOOL bRet = FALSE;
 
-    printf("Enter string :\n");
+    printf("Enter the string :\n");
     scanf("%[^'\n]s",Arr);
 
-    iRet = CountCapital(Arr);
-    printf("Total capital character are : %d\n",iRet);
+    bRet = ChkVowel(Arr);
 
+    if(bRet == TRUE)
+    {
+        printf("It is a Vowel");
+    }
+    else
+    {
+        printf("There is no Vowel");
+    }
     return 0;
-
 }
 
 ////////////////////////////////////////////////////////////////////
 //
 //           Input         Output
 //
-//          MarvellOUS      4
-//          HEllO           3
+//          marvellous       TRUE
+//          xyz              FALSE
 //
 ////////////////////////////////////////////////////////////////////
 

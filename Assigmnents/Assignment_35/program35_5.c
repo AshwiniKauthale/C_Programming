@@ -10,27 +10,28 @@
 
 
 //
-//  Function Name : CountCapital
-//  Description :   Count number of capital character from string
+//  Function Name : Reverse
+//  Description :   Accept the string and display it in reverse order
 //  Input :         Character
-//  Output :        integer
+//  Output :        Boolean
 //  Author :        Ashwini Vishnu Kauthale
-//  Date :          27/11/2025
+//  Date :          28/11/2025
 //
 ////////////////////////////////////////////////////////////////////
 
-int CountCapital(char *str)
+void Reverse(char str[])
 {
-    int iCount = 0;
+    char *temp = str;
     while(*str != '\0')
     {
-        if((*str >= 'A') && (*str <= 'Z'))
-        {
-            iCount++;
-        }
-        *str++;
+        str++;
     }
-    return iCount;
+    while(str >= temp)
+    {
+        printf("%c",*str);
+        str--;
+    }
+    
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -42,24 +43,19 @@ int CountCapital(char *str)
 int main()
 {
     char Arr[20];
-    int iRet = 0;
 
-    printf("Enter string :\n");
+    printf("Enter the string :\n");
     scanf("%[^'\n]s",Arr);
 
-    iRet = CountCapital(Arr);
-    printf("Total capital character are : %d\n",iRet);
-
+    Reverse(Arr);
     return 0;
-
 }
 
 ////////////////////////////////////////////////////////////////////
 //
 //           Input         Output
 //
-//          MarvellOUS      4
-//          HEllO           3
+//          MarvellouS       SoullevraM
 //
 ////////////////////////////////////////////////////////////////////
 
