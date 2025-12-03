@@ -11,8 +11,8 @@
 
 
 //
-//  Function Name : StrCpyRev
-//  Description :   Accept the string from user reverse that string in another string
+//  Function Name : StrCpy
+//  Description :   Accept the string from user copy that string in another string removing whitespaces
 //  Input :         String
 //  Output :
 //  Author :        Ashwini Vishnu Kauthale
@@ -20,33 +20,16 @@
 //
 ////////////////////////////////////////////////////////////////////
 
-void StrCpyRev(char *str,char *dest)
+void StrCpy(char *src,char *dest)
 {
-    char *start = str;
-    char *end = str;
-    char temp = '\0';
-
-    while(*end != '\0')
+    while(*src != '\0')
     {
-        end++;
-    }
-
-    end--;
-    while(start < end)
-    {
-        temp = *start;
-        *start = *end;
-        *end = temp;
-
-        start++;
-        end--;
-    }
-
-    while(*str != '\0')
-    {
-        *dest = *str;
-        str++;
-        dest++;
+        if(*src != ' ')
+        {
+            *dest = *src;
+            dest++;
+        }
+        src++;
     }
     *dest = '\0';
 }
@@ -65,7 +48,7 @@ int main()
     printf("Enter String :\n");
     scanf("%[^'\n']",Arr,Brr);
 
-    StrCpyRev(Arr,Brr);
+    StrCpy(Arr,Brr);
     printf("Updated string is :%s",Brr);
 
     return 0;
@@ -73,9 +56,9 @@ int main()
 
 ////////////////////////////////////////////////////////////////////
 //
-//           Input         Output
+//           Input                     Output
 //
-//            abcd          dcba 
+//       Marv ellous py thon          Marvellouspython
 //
 ////////////////////////////////////////////////////////////////////
 

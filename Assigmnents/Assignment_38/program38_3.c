@@ -11,8 +11,8 @@
 
 
 //
-//  Function Name : StrCpyRev
-//  Description :   Accept the string from user reverse that string in another string
+//  Function Name : StrCpyCap
+//  Description :   Accept the string from user copy that string in another string by converting all small character into capital case
 //  Input :         String
 //  Output :
 //  Author :        Ashwini Vishnu Kauthale
@@ -20,33 +20,21 @@
 //
 ////////////////////////////////////////////////////////////////////
 
-void StrCpyRev(char *str,char *dest)
+void StrCpyCap(char *src,char *dest)
 {
-    char *start = str;
-    char *end = str;
-    char temp = '\0';
-
-    while(*end != '\0')
+    while(*src != '\0')
     {
-        end++;
-    }
-
-    end--;
-    while(start < end)
-    {
-        temp = *start;
-        *start = *end;
-        *end = temp;
-
-        start++;
-        end--;
-    }
-
-    while(*str != '\0')
-    {
-        *dest = *str;
-        str++;
-        dest++;
+        if(*src >= 'a' && *src <= 'z')
+        {
+            *dest = *src - 32;
+            dest++;
+        }
+        else
+        {
+            *dest = *src;
+            dest++;
+        }
+        src++;
     }
     *dest = '\0';
 }
@@ -65,7 +53,7 @@ int main()
     printf("Enter String :\n");
     scanf("%[^'\n']",Arr,Brr);
 
-    StrCpyRev(Arr,Brr);
+    StrCpyCap(Arr,Brr);
     printf("Updated string is :%s",Brr);
 
     return 0;
@@ -73,9 +61,9 @@ int main()
 
 ////////////////////////////////////////////////////////////////////
 //
-//           Input         Output
+//           Input                     Output
 //
-//            abcd          dcba 
+//       Marvellous Python 2       MARVELLOUS PYTHON 2
 //
 ////////////////////////////////////////////////////////////////////
 
