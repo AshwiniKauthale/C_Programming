@@ -14,8 +14,8 @@ typedef int BOOL;
 
 
 //
-//  Function Name : ChkAlpha
-//  Description :   Check given character is Alphabet or not
+//  Function Name : ChkDidit
+//  Description :   Check given character is Digit or not
 //  Input :         Character
 //  Output :        Boolean
 //  Author :        Ashwini Vishnu Kauthale
@@ -23,9 +23,9 @@ typedef int BOOL;
 //
 ////////////////////////////////////////////////////////////////////
 
-BOOL ChkAlpha(char ch)
+BOOL ChkDigit(char ch)
 {
-    if((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z'))
+    if((ch >= '0' && ch <= '9') )
     {
         return TRUE;
     }
@@ -49,15 +49,15 @@ int main()
     printf("Enter the character :\n");
     scanf("%c",&cValue);
 
-    bRet = ChkAlpha(cValue);
+    bRet = ChkDigit(cValue);
 
     if(bRet == TRUE)
     {
-        printf("It is character");
+        printf("It is a digit");
     }
     else
     {
-        printf("It is not character");
+        printf("It is not a digit");
     }
     return 0;
 
@@ -67,8 +67,8 @@ int main()
 //
 //           Input         Output
 //
-//             F            TRUE
-//             &            FALSE
+//             7            TRUE
+//             d            FALSE
 //
 ////////////////////////////////////////////////////////////////////
 

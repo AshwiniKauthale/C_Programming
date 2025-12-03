@@ -5,34 +5,43 @@
 ////////////////////////////////////////////////////////////////////
 
 #include<stdio.h>
-# define TRUE 1
-# define FALSE 0
-
-typedef int BOOL;
 
 ////////////////////////////////////////////////////////////////////
 
 
 //
-//  Function Name : ChkAlpha
-//  Description :   Check given character is Alphabet or not
+//  Function Name : DisplaySchedule
+//  Description :   Display exam time based on division
 //  Input :         Character
-//  Output :        Boolean
+//  Output :        String
 //  Author :        Ashwini Vishnu Kauthale
 //  Date :          27/11/2025
 //
 ////////////////////////////////////////////////////////////////////
 
-BOOL ChkAlpha(char ch)
+void DisplaySchedule(char chDiv)
 {
-    if((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z'))
+    if((chDiv == 'a' || chDiv == 'A'))
     {
-        return TRUE;
+        printf("Your exam at 7 AM");
+    }
+    else if((chDiv == 'b' || chDiv == 'B'))
+    {
+        printf("Your exam at 8.30 AM");
+    }
+    else if((chDiv == 'c' || chDiv == 'C'))
+    {
+        printf("Your exam at 9.20 AM");
+    }
+    else if((chDiv == 'd' || chDiv == 'D'))
+    {
+        printf("Your exam at 10.30 AM");
     }
     else
     {
-        return FALSE;
+        printf("Enter correct division");
     }
+    
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -44,21 +53,12 @@ BOOL ChkAlpha(char ch)
 int main()
 {
     char cValue = '\0';
-    BOOL bRet = FALSE;
 
     printf("Enter the character :\n");
     scanf("%c",&cValue);
 
-    bRet = ChkAlpha(cValue);
+    DisplaySchedule(cValue);
 
-    if(bRet == TRUE)
-    {
-        printf("It is character");
-    }
-    else
-    {
-        printf("It is not character");
-    }
     return 0;
 
 }
@@ -67,8 +67,8 @@ int main()
 //
 //           Input         Output
 //
-//             F            TRUE
-//             &            FALSE
+//             C            Your exam at 9.20 AM
+//             d            Your exam at 10.30 AM
 //
 ////////////////////////////////////////////////////////////////////
 

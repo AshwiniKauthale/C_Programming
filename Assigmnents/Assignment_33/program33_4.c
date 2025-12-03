@@ -14,8 +14,8 @@ typedef int BOOL;
 
 
 //
-//  Function Name : ChkAlpha
-//  Description :   Check given character is Alphabet or not
+//  Function Name : ChkSmall
+//  Description :   Check given character is Small case or not
 //  Input :         Character
 //  Output :        Boolean
 //  Author :        Ashwini Vishnu Kauthale
@@ -23,9 +23,9 @@ typedef int BOOL;
 //
 ////////////////////////////////////////////////////////////////////
 
-BOOL ChkAlpha(char ch)
+BOOL ChkSmall(char ch)
 {
-    if((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z'))
+    if((ch >= 'a' && ch <= 'z') )
     {
         return TRUE;
     }
@@ -49,15 +49,15 @@ int main()
     printf("Enter the character :\n");
     scanf("%c",&cValue);
 
-    bRet = ChkAlpha(cValue);
+    bRet = ChkSmall(cValue);
 
     if(bRet == TRUE)
     {
-        printf("It is character");
+        printf("It is a small case character");
     }
     else
     {
-        printf("It is not character");
+        printf("It is not a small case character");
     }
     return 0;
 
@@ -67,8 +67,8 @@ int main()
 //
 //           Input         Output
 //
-//             F            TRUE
-//             &            FALSE
+//             a            TRUE
+//             D            FALSE
 //
 ////////////////////////////////////////////////////////////////////
 

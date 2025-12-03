@@ -14,8 +14,8 @@ typedef int BOOL;
 
 
 //
-//  Function Name : ChkAlpha
-//  Description :   Check given character is Alphabet or not
+//  Function Name : ChkCapital
+//  Description :   Check given character is Capital or not
 //  Input :         Character
 //  Output :        Boolean
 //  Author :        Ashwini Vishnu Kauthale
@@ -23,15 +23,19 @@ typedef int BOOL;
 //
 ////////////////////////////////////////////////////////////////////
 
-BOOL ChkAlpha(char ch)
+BOOL ChkCapital(char ch)
 {
-    if((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z'))
+    if((ch >= 'A' && ch <= 'Z') )
     {
         return TRUE;
     }
-    else
+    else if((ch >= 'a' && ch <= 'z'))
     {
         return FALSE;
+    }
+    else
+    {
+        return -1;
     }
 }
 
@@ -49,15 +53,19 @@ int main()
     printf("Enter the character :\n");
     scanf("%c",&cValue);
 
-    bRet = ChkAlpha(cValue);
+    bRet = ChkCapital(cValue);
 
     if(bRet == TRUE)
     {
-        printf("It is character");
+        printf("It is capital character");
+    }
+    else if(bRet == FALSE)
+    {
+        printf("It is not a capital character");
     }
     else
     {
-        printf("It is not character");
+        printf("It is not a character");
     }
     return 0;
 
@@ -68,7 +76,7 @@ int main()
 //           Input         Output
 //
 //             F            TRUE
-//             &            FALSE
+//             d            FALSE
 //
 ////////////////////////////////////////////////////////////////////
 
