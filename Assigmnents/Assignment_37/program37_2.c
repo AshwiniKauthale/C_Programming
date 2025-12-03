@@ -6,17 +6,13 @@
 
 #include<stdio.h>
 
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
 
 ////////////////////////////////////////////////////////////////////
 
 
 //
-//  Function Name : ChkChar
-//  Description :   Accept the string and one character and display that character is present or not
+//  Function Name : CountChar
+//  Description :   Accept the string and one character and display that character count
 //  Input :         String
 //  Output :         int
 //  Author :        Ashwini Vishnu Kauthale
@@ -24,17 +20,18 @@ typedef int BOOL;
 //
 ////////////////////////////////////////////////////////////////////
 
-BOOL ChkChar(char str[],char ch)
+int CountChar(char str[],char ch)
 {
+    int iCount = 0;
     while(*str != '\0')
     {
         if(*str == ch)
         {
-            return TRUE;
+            iCount++;
         }
         str++;
     }
-    return FALSE;
+    return iCount;
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -47,7 +44,7 @@ int main()
 {
     char Arr[50] = {'\0'};
     char cValue = '\0';
-    BOOL bRet = FALSE;
+    int iRet = 0;
 
     printf("Enter String : \n");
     scanf("%[^'\n']s",Arr);
@@ -55,16 +52,9 @@ int main()
     printf("Enter Character : \n");
     scanf(" %c",&cValue);
 
-    bRet = ChkChar(Arr,cValue);
+    iRet = CountChar(Arr,cValue);
 
-    if(bRet == TRUE)
-    {
-        printf("Character found");
-    }
-    else
-    {
-        printf("Character not found");
-    }
+    printf("Chracter frequency is %d:",iRet);
 
     return 0;
 }
@@ -73,7 +63,7 @@ int main()
 //
 //           Input           Check      Output
 //
-//          MarvellouS         e        TRUE
+//          MarvellouS         l          2
 //
 ////////////////////////////////////////////////////////////////////
 

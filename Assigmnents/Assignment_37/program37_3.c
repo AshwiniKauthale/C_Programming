@@ -6,17 +6,13 @@
 
 #include<stdio.h>
 
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
 
 ////////////////////////////////////////////////////////////////////
 
 
 //
-//  Function Name : ChkChar
-//  Description :   Accept the string and one character and display that character is present or not
+//  Function Name : FirstChar
+//  Description :   Accept the string and one character and return first occurance of that character 
 //  Input :         String
 //  Output :         int
 //  Author :        Ashwini Vishnu Kauthale
@@ -24,17 +20,18 @@ typedef int BOOL;
 //
 ////////////////////////////////////////////////////////////////////
 
-BOOL ChkChar(char str[],char ch)
+int FirstChar(char str[],char ch)
 {
-    while(*str != '\0')
+    int iCnt = 0;
+    while(str[iCnt] != '\0')
     {
-        if(*str == ch)
+        if(str[iCnt] == ch)
         {
-            return TRUE;
+            return iCnt;
         }
-        str++;
+        iCnt++;
     }
-    return FALSE;
+    return -1;
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -47,7 +44,7 @@ int main()
 {
     char Arr[50] = {'\0'};
     char cValue = '\0';
-    BOOL bRet = FALSE;
+    int iRet = 0;
 
     printf("Enter String : \n");
     scanf("%[^'\n']s",Arr);
@@ -55,16 +52,9 @@ int main()
     printf("Enter Character : \n");
     scanf(" %c",&cValue);
 
-    bRet = ChkChar(Arr,cValue);
+    iRet = FirstChar(Arr,cValue);
 
-    if(bRet == TRUE)
-    {
-        printf("Character found");
-    }
-    else
-    {
-        printf("Character not found");
-    }
+    printf("First Occurence is : %d",iRet);
 
     return 0;
 }
@@ -73,7 +63,7 @@ int main()
 //
 //           Input           Check      Output
 //
-//          MarvellouS         e        TRUE
+//          MarvellouS         l          5
 //
 ////////////////////////////////////////////////////////////////////
 

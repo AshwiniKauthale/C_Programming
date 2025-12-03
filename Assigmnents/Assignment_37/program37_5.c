@@ -6,35 +6,41 @@
 
 #include<stdio.h>
 
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
 
 ////////////////////////////////////////////////////////////////////
 
 
 //
-//  Function Name : ChkChar
-//  Description :   Accept the string and one character and display that character is present or not
+//  Function Name : StrrevX
+//  Description :   Accept the string from user reverse that string in place 
 //  Input :         String
-//  Output :         int
+//  Output :
 //  Author :        Ashwini Vishnu Kauthale
 //  Date :          01/12/2025
 //
 ////////////////////////////////////////////////////////////////////
-
-BOOL ChkChar(char str[],char ch)
+void strrevX(char str[])
 {
-    while(*str != '\0')
+    char *start = str;
+    char *end = str;
+    char temp = '\0';
+
+    while(*end != '\0')
     {
-        if(*str == ch)
-        {
-            return TRUE;
-        }
-        str++;
+        end++;
     }
-    return FALSE;
+
+    end--;
+    while(start < end)
+    {
+        temp = *start;
+        *start = *end;
+        *end = temp;
+
+        start++;
+        end--;
+    }
+    
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -46,34 +52,23 @@ BOOL ChkChar(char str[],char ch)
 int main()
 {
     char Arr[50] = {'\0'};
-    char cValue = '\0';
-    BOOL bRet = FALSE;
 
     printf("Enter String : \n");
     scanf("%[^'\n']s",Arr);
 
-    printf("Enter Character : \n");
-    scanf(" %c",&cValue);
 
-    bRet = ChkChar(Arr,cValue);
+    strrevX(Arr);
 
-    if(bRet == TRUE)
-    {
-        printf("Character found");
-    }
-    else
-    {
-        printf("Character not found");
-    }
+    printf("Updated string is :%s\n",Arr);
 
     return 0;
 }
 
 ////////////////////////////////////////////////////////////////////
 //
-//           Input           Check      Output
+//           Input         Output
 //
-//          MarvellouS         e        TRUE
+//            abcd          dcba 
 //
 ////////////////////////////////////////////////////////////////////
 
