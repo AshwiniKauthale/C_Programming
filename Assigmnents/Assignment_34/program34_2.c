@@ -11,29 +11,28 @@
 
 //
 //  Function Name : Display
-//  Description :   print ASCII table
-//  Input :
+//  Description :   accept input if it is character toggle otherwise display as it is
+//  Input :         Character
 //  Output :
 //  Author :        Ashwini Vishnu Kauthale
 //  Date :          01/12/2025
 //
 ////////////////////////////////////////////////////////////////////
 
-void Display()
+void Display(char ch)
 {
-    int iCnt = 0;
-    for(iCnt = 0; iCnt <= 255; iCnt++)
+    if((ch >= 'A' && ch <= 'Z') )
     {
-        if(iCnt < 32 || iCnt == 127)
-        {
-            printf(" ");
-        }
-        else
-        {
-            ("Character : %c   ",iCnt);
-        }
-        printf("Decimal : %d   Octal : %o   Hexadecimal : 0X%X  \n",(int)iCnt,(int)iCnt,(int)iCnt);
-
+        printf("%c",(ch + 32));
+    }
+    else
+    if((ch >= 'a' && ch <= 'z') )
+    {
+        printf("%c",(ch - 32));
+    }
+    else
+    {
+        printf("%c",ch);
     }
 }
 
@@ -45,16 +44,21 @@ void Display()
 
 int main()
 {
-    Display();
+    char cValue = '\0';
 
-    return 0;
+    printf("Enter the character :\n");
+    scanf("%c",&cValue);
+
+    Display(cValue);
 
 }
 
 ////////////////////////////////////////////////////////////////////
 //
-//           Input            Output
+//           Input         Output
 //
-//             QA              Decimal : 65          Octal  :  0101   Hexxadecimal  : 0X41
+//             7            7
+//             d            D
 //
 ////////////////////////////////////////////////////////////////////
+

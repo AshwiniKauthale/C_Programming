@@ -11,7 +11,7 @@
 
 //
 //  Function Name : Display
-//  Description :   print ASCII table
+//  Description :   print Decimal Octal and Hexadecimal of given character
 //  Input :
 //  Output :
 //  Author :        Ashwini Vishnu Kauthale
@@ -19,22 +19,10 @@
 //
 ////////////////////////////////////////////////////////////////////
 
-void Display()
+void Display(char ch)
 {
-    int iCnt = 0;
-    for(iCnt = 0; iCnt <= 255; iCnt++)
-    {
-        if(iCnt < 32 || iCnt == 127)
-        {
-            printf(" ");
-        }
-        else
-        {
-            ("Character : %c   ",iCnt);
-        }
-        printf("Decimal : %d   Octal : %o   Hexadecimal : 0X%X  \n",(int)iCnt,(int)iCnt,(int)iCnt);
-
-    }
+    
+    printf("Decimal : %d   Octal : %o   Hexadecimal : 0X%X  \n",(int)ch,(int)ch,(int)ch);
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -45,7 +33,12 @@ void Display()
 
 int main()
 {
-    Display();
+    char cValue = '\0';
+
+    printf("Enter the character :\n");
+    scanf("%c",&cValue);
+
+    Display(cValue);
 
     return 0;
 
