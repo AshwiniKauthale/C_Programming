@@ -10,8 +10,8 @@
 
 
 //
-//  Function Name : strlwrX
-//  Description :   Accept the string and display it into lowercase
+//  Function Name : strtoggleX
+//  Description :   Accept the string and display it into toggle case
 //  Input :         String
 //  Output :
 //  Author :        Ashwini Vishnu Kauthale
@@ -19,13 +19,17 @@
 //
 ////////////////////////////////////////////////////////////////////
 
-void strlwrX(char str[])
+void strtoggleX(char str[])
 {
     while(*str != '\0')
     {
-        if((*str  >= 'A') && (*str <= 'Z'))
+        if((*str  >= 'a') && (*str <= 'z'))
         {
-            *str = *str +32;
+            *str = *str - 32;
+        }
+        else if((*str  >= 'A') && (*str <= 'Z'))
+        {
+            *str = *str + 32;
         }
         
         str++;
@@ -45,7 +49,7 @@ int main()
     printf("Enter String : \n");
     scanf("%[^'\n']s",Arr);
 
-    strlwrX(Arr);
+    strtoggleX(Arr);
     printf("Updated string is : %s\n",Arr);
 
     return 0;
@@ -55,7 +59,7 @@ int main()
 //
 //           Input         Output
 //
-//          MarvellouS    marvellous
+//          MarvellouS    MarvellouS
 //
 ////////////////////////////////////////////////////////////////////
 

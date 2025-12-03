@@ -10,8 +10,8 @@
 
 
 //
-//  Function Name : strlwrX
-//  Description :   Accept the string and display it into lowercase
+//  Function Name : stryprX
+//  Description :   Accept the string and display it into UPPER case
 //  Input :         String
 //  Output :
 //  Author :        Ashwini Vishnu Kauthale
@@ -19,13 +19,13 @@
 //
 ////////////////////////////////////////////////////////////////////
 
-void strlwrX(char str[])
+void struprX(char str[])
 {
     while(*str != '\0')
     {
-        if((*str  >= 'A') && (*str <= 'Z'))
+        if((*str  >= 'a') && (*str <= 'z'))
         {
-            *str = *str +32;
+            *str = *str - 32;
         }
         
         str++;
@@ -45,7 +45,7 @@ int main()
     printf("Enter String : \n");
     scanf("%[^'\n']s",Arr);
 
-    strlwrX(Arr);
+    struprX(Arr);
     printf("Updated string is : %s\n",Arr);
 
     return 0;
@@ -55,7 +55,7 @@ int main()
 //
 //           Input         Output
 //
-//          MarvellouS    marvellous
+//          MarvellouS    MARVELLOUS
 //
 ////////////////////////////////////////////////////////////////////
 

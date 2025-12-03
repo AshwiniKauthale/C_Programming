@@ -10,26 +10,28 @@
 
 
 //
-//  Function Name : strlwrX
-//  Description :   Accept the string and display it into lowercase
+//  Function Name : CountWhiteSpace
+//  Description :   Accept the string and display white spaces
 //  Input :         String
-//  Output :
+//  Output :         int
 //  Author :        Ashwini Vishnu Kauthale
 //  Date :          01/12/2025
 //
 ////////////////////////////////////////////////////////////////////
 
-void strlwrX(char str[])
+int CountWhiteSpaces(char str[])
 {
+    
+    int iCount = 0;
     while(*str != '\0')
     {
-        if((*str  >= 'A') && (*str <= 'Z'))
+        if(*str == ' ')
         {
-            *str = *str +32;
+            iCount++;
         }
-        
         str++;
     }
+    return iCount;
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -41,12 +43,13 @@ void strlwrX(char str[])
 int main()
 {
     char Arr[50] = {'\0'};
+    int iRet = 0;
 
     printf("Enter String : \n");
     scanf("%[^'\n']s",Arr);
 
-    strlwrX(Arr);
-    printf("Updated string is : %s\n",Arr);
+    iRet = CountWhiteSpaces(Arr);
+    printf("Count is : %d\n",iRet);
 
     return 0;
 }
@@ -55,7 +58,7 @@ int main()
 //
 //           Input         Output
 //
-//          MarvellouS    marvellous
+//          Mar vello uS      2
 //
 ////////////////////////////////////////////////////////////////////
 

@@ -10,8 +10,8 @@
 
 
 //
-//  Function Name : strlwrX
-//  Description :   Accept the string and display it into lowercase
+//  Function Name : DisplayDigit
+//  Description :   Accept the string and display digits
 //  Input :         String
 //  Output :
 //  Author :        Ashwini Vishnu Kauthale
@@ -19,17 +19,21 @@
 //
 ////////////////////////////////////////////////////////////////////
 
-void strlwrX(char str[])
+void DisplayDigit(char str[])
 {
-    while(*str != '\0')
+    char *start=str;
+    char *dest=str;
+    
+    while(*start != '\0')
     {
-        if((*str  >= 'A') && (*str <= 'Z'))
-        {
-            *str = *str +32;
-        }
-        
-        str++;
+            if(*start >= '0' && *start <= '9')
+            {
+                *dest=*start;
+                dest++;
+            }
+            start++;
     }
+   *dest='\0';
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -45,17 +49,17 @@ int main()
     printf("Enter String : \n");
     scanf("%[^'\n']s",Arr);
 
-    strlwrX(Arr);
-    printf("Updated string is : %s\n",Arr);
+    DisplayDigit(Arr);
+    printf("Digits are : %s\n",Arr);
 
     return 0;
 }
 
 ////////////////////////////////////////////////////////////////////
 //
-//           Input         Output
+//           Input             Output
 //
-//          MarvellouS    marvellous
+//          MarvellouS1234       1234
 //
 ////////////////////////////////////////////////////////////////////
 
