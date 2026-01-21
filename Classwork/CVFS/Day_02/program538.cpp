@@ -10,10 +10,12 @@ int main()
 
     printf("Enter two numbers : \n");
 
-    scanf("%d%d",&No1,&No2);
+    iRet = scanf("%d%d",&No1,&No2);
 
     printf("First Number : %d\n",No1);
     printf("Second Number : %d\n",No2);
+
+    printf("Return value of scanf is : %d\n",iRet);
     
     return 0;
 }
