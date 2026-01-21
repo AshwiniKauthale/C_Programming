@@ -117,7 +117,7 @@ typedef FileTable* PFILETABLE;         // Pointer Points to IIT
 struct UAREA
 {
     char ProcessName[20];
-    PFILETABLE UFDT[MAXOPENFILES];
+    PFILETABLE UFDT[MAXOPENFILES];          // Array of Pointer in UAREA
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -131,6 +131,45 @@ SuperBlock superobj;
 UAREA uareaobj;
 
 PINODE head = NULL;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//      Function Name :  InitialiseUAREA
+//      Description :    It is used to initialise UAREA member
+//      Author :         Ashwini Vishnu Kauthale
+//      Data :           13/01/2026
+//
+///////////////////////////////////////////////////////////////////////////////
+
+void InitialiseUAREA()
+{
+    strcpy(uareaobj.ProcessName,"Myexe");
+
+    int i = 0;
+
+    for(i = 0; i < MAXOPENFILES; i++)
+    {
+        uareaobj.UFDT[i] = NULL;
+    }
+    printf("Marvellous CVSF : UAREA gets initialized succesfully\n");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//      Function Name :  InitialiseSuperBlock
+//      Description :    It is used to initialise Super bloch member
+//      Author :         Ashwini Vishnu Kauthale
+//      Data :           13/01/2026
+//
+///////////////////////////////////////////////////////////////////////////////
+
+void InitialiseSuperBlock()
+{
+    superobj.TotalInodes = MAXINODE;
+    superobj.FreeInodes = MAXINODE;
+
+    printf("Marvellous CVSF : Super block gets initialized succesfully\n");
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //

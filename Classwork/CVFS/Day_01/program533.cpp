@@ -117,7 +117,7 @@ typedef FileTable* PFILETABLE;         // Pointer Points to IIT
 struct UAREA
 {
     char ProcessName[20];
-    PFILETABLE UFDT[MAXOPENFILES];
+    PFILETABLE UFDT[MAXOPENFILES];          // Array of Pointer in UAREA
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -134,12 +134,120 @@ PINODE head = NULL;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
+//      Function Name :  InitialiseUAREA
+//      Description :    It is used to initialise UAREA member
+//      Author :         Ashwini Vishnu Kauthale
+//      Data :           13/01/2026
+//
+///////////////////////////////////////////////////////////////////////////////
+
+void InitialiseUAREA()
+{
+    strcpy(uareaobj.ProcessName,"Myexe");
+
+    int i = 0;
+
+    for(i = 0; i < MAXOPENFILES; i++)
+    {
+        uareaobj.UFDT[i] = NULL;
+    }
+    printf("Marvellous CVSF : UAREA gets initialized succesfully\n");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//      Function Name :  InitialiseSuperBlock
+//      Description :    It is used to initialise Super bloch member
+//      Author :         Ashwini Vishnu Kauthale
+//      Data :           13/01/2026
+//
+///////////////////////////////////////////////////////////////////////////////
+
+void InitialiseSuperBlock()
+{
+    superobj.TotalInodes = MAXINODE;
+    superobj.FreeInodes = MAXINODE;
+
+    printf("Marvellous CVSF : Super block gets initialized succesfully\n");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//      Function Name :  CreateDILB
+//      Description :    It is used to create Linked list of inodes
+//      Author :         Ashwini Vishnu Kauthale
+//      Data :           13/01/2026
+//
+///////////////////////////////////////////////////////////////////////////////
+
+void CreateDILB()
+{
+    int i = 1;
+    PINODE newn = NULL;
+    PINODE temp = head;
+
+    for(i = 1; i <= MAXINODE; i++)
+    {
+        newn = (PINODE)malloc(sizeof(INODE));
+
+        strcpy(newn->FileName,"\0");
+        newn->InodeNumber = i;
+        newn->FileSize = 0;
+        newn->ActualFileSize = 0;
+        newn->ReferenceCount = 0;
+        newn->Permission = 0;
+        newn->Buffer = NULL;
+        newn->next = NULL;
+
+        if(temp == NULL)    // LL is empty
+        {
+            head = newn;
+            temp = newn;
+        }
+        else                // LL contains at least 1 node
+        {
+            temp->next = newn;
+            temp = temp->next;
+        }
+    }
+
+    printf("Marvellous CVSF : DILD created succesfully\n");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//      Function Name :  StartAuxillaryDataInitilisation
+//      Description :    It is used to call all such function which are 
+//                       used to initialise auxillary data
+//      Author :         Ashwini Vishnu Kauthale
+//      Data :           13/01/2026
+//
+///////////////////////////////////////////////////////////////////////////////
+
+void StartAuxillaryDataInitilisation()
+{
+    strcpy(bootobj.Information,"Booting process of Marvellous CVFS is done");
+
+    printf("%s\n",bootobj.Information);
+
+    InitialiseSuperBlock();
+
+    CreateDILB();
+
+    InitialiseUAREA();
+
+    printf("MArvellous CVSF : Auxillary data initialised succesfully\n");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
 //      Entry Point Function of the project
 //
 ///////////////////////////////////////////////////////////////////////////////
 
 int main()
 {
-
+    StartAuxillaryDataInitilisation();
+    
     return 0;
 }
