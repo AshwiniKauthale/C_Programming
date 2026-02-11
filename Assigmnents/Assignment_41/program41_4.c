@@ -17,17 +17,16 @@
 //
 ////////////////////////////////////////////////////////////////////
 
-void Display(int iNo)
+int Fact(int iNo)
 {
-    int iCnt = iNo;
+    static int iFact = 1;
 
-    if(iCnt >= 1)
+    if(iNo >= 1)
     {
-        printf("%d\t *\t",iCnt);
-        iCnt--;
-        Display(iNo-1);
+        iFact = iFact * iNo;
+        Fact(iNo-1);
     }
-
+    return iFact;
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -38,17 +37,19 @@ void Display(int iNo)
 
 int main()
 {
-    int iValue = 0;
+    int iValue = 0,iRet = 0;
 
     printf("Enter number : \n");
     scanf("%d",&iValue);
-    Display(iValue);
+    iRet = Fact(iValue);
+
+    printf("Factorial is : %d",iRet);
 
     return 0;
 }
 ////////////////////////////////////////////////////////////////////
 //
 // Input  :  5
-//  Output : * * * * *
+//  Output : 120
 //
 ///////////////////////////////////////////////////////////////////
