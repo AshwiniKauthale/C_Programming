@@ -20,11 +20,13 @@
 void Display(int iNo)
 {
     static int iCnt = 1;
+    static char ch = 'a';
 
     if(iCnt <= iNo)
     {
-        printf("* ");
+        printf("%c\t",ch);
         iCnt++;
+        ch++;
         Display(iNo-1);
     }
 
@@ -49,6 +51,6 @@ int main()
 ////////////////////////////////////////////////////////////////////
 //
 // Input  :  5
-//  Output : * * * * *
+//  Output : a b c d e
 //
 ///////////////////////////////////////////////////////////////////
