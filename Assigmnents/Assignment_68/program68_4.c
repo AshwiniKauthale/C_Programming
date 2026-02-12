@@ -10,8 +10,8 @@
 //
 //    Function Name :    Display
 //    Input :            Nothing
-//    Output :           Display 5 times *
-//    Description :      Used to display the five times * using recursion
+//    Output :           Display Alphabet in reverse order
+//    Description :      Used to display the alphabet using recursion
 //    Author :           Ashwini Vishnu Kauthale
 //    Data :             08/02/2026
 //
@@ -19,11 +19,12 @@
 
 void Display()
 {
-    static int iNo = 1;
-    if(iNo <= 5)
+    static char ch = 'A';
+
+    if(ch <= 'F')
     {
-        printf("*\t");
-        iNo++;
+        printf("%c\t",ch);
+        ch++;
         Display();
     }
 }

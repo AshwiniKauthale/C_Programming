@@ -10,8 +10,8 @@
 //
 //    Function Name :    Display
 //    Input :            Nothing
-//    Output :           Display 5 times *
-//    Description :      Used to display the five times * using recursion
+//    Output :           Display number upto 5
+//    Description :      Used to display the number using recursion
 //    Author :           Ashwini Vishnu Kauthale
 //    Data :             08/02/2026
 //
@@ -19,11 +19,11 @@
 
 void Display()
 {
-    static int iNo = 1;
-    if(iNo <= 5)
+    static int iNo = 5;
+    if(iNo >= 1)
     {
-        printf("*\t");
-        iNo++;
+        printf("%d\t",iNo);
+        iNo--;
         Display();
     }
 }
