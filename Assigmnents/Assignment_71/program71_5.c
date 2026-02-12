@@ -8,31 +8,32 @@
 
 //////////////////////////////////////////////////////////
 //
-//    Function Name :    WhiteSpaces
-//    Input :            string
+//    Function Name :    Small
+//    Input :            character
 //    Output :           integer
-//    Description :      Used to count  the number of whitwspacesr from string  using recursion
+//    Description :      Used to reverse the given number using recursion
 //    Author :           Ashwini Vishnu Kauthale
 //    Data :             09/02/2026
 //
 //////////////////////////////////////////////////////////
 
-
-int WhiteSpaces(char * str)
+int Reverse(int iNo)
 {
-    if(*str == '\0')
+    static int iRev = 0;
+
+    if(iNo < 0)
     {
-        return 0;
+        iNo = -iNo;
     }
-    
-    if(*str == ' ')
+
+    if (iNo != 0)
     {
-        return 1 + WhiteSpaces(str + 1);
+        int iDigit = iNo % 10;
+        iRev = (iRev * 10) + iDigit;
+        Reverse(iNo / 10);
     }
-    else
-    {
-        return WhiteSpaces(str + 1);
-    }
+
+    return iRev;
 }
 
 //////////////////////////////////////////////////////////
@@ -43,15 +44,15 @@ int WhiteSpaces(char * str)
 
 int main()
 {
-    char arr[20];
+    int iValue = 0;
     int iRet = 0;
 
-    printf("Enter the String : ");
-    scanf("%[^\n]s",arr);
+    printf("Enter Number : ");
+    scanf("%d",&iValue);
 
-    iRet = WhiteSpaces(arr);
+    iRet = Reverse(iValue);
 
-    printf("number of WhiteSpsces are : %d\n",iRet);
+    printf("Reverse number is : %d\n",iRet);
 
     return 0;
 }

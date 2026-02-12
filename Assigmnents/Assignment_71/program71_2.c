@@ -8,30 +8,35 @@
 
 //////////////////////////////////////////////////////////
 //
-//    Function Name :    WhiteSpaces
-//    Input :            string
+//    Function Name :    Max
+//    Input :            integer
 //    Output :           integer
-//    Description :      Used to count  the number of whitwspacesr from string  using recursion
+//    Description :      Used to find out maximum digit from the number  using recursion
 //    Author :           Ashwini Vishnu Kauthale
 //    Data :             09/02/2026
 //
 //////////////////////////////////////////////////////////
 
+int iMax = 0;
 
-int WhiteSpaces(char * str)
+void Max(int iNo)
 {
-    if(*str == '\0')
+    static int iDigit = 0;
+
+    if(iNo < 0)
     {
-        return 0;
+        iNo = -iNo;
     }
-    
-    if(*str == ' ')
+
+    if(iNo != 0)
     {
-        return 1 + WhiteSpaces(str + 1);
-    }
-    else
-    {
-        return WhiteSpaces(str + 1);
+        iDigit = iNo % 10;
+        if(iDigit >= iMax)
+        {
+            iMax = iDigit;
+        }
+        iNo = iNo / 10;
+        Max(iNo);
     }
 }
 
@@ -43,15 +48,14 @@ int WhiteSpaces(char * str)
 
 int main()
 {
-    char arr[20];
-    int iRet = 0;
+    int iValue = 0;
 
-    printf("Enter the String : ");
-    scanf("%[^\n]s",arr);
+    printf("Enter Number : ");
+    scanf("%d",&iValue);
 
-    iRet = WhiteSpaces(arr);
+    Max(iValue);
 
-    printf("number of WhiteSpsces are : %d\n",iRet);
+    printf("Maximun number is : %d\n",iMax);
 
     return 0;
 }

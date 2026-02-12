@@ -8,30 +8,29 @@
 
 //////////////////////////////////////////////////////////
 //
-//    Function Name :    WhiteSpaces
-//    Input :            string
+//    Function Name :    Small
+//    Input :            character
 //    Output :           integer
-//    Description :      Used to count  the number of whitwspacesr from string  using recursion
+//    Description :      Used to count  the number of small character from string  using recursion
 //    Author :           Ashwini Vishnu Kauthale
 //    Data :             09/02/2026
 //
 //////////////////////////////////////////////////////////
 
-
-int WhiteSpaces(char * str)
+int Small(char * str)
 {
     if(*str == '\0')
     {
         return 0;
     }
-    
-    if(*str == ' ')
+
+    if(*str >= 'a' && *str <= 'z')
     {
-        return 1 + WhiteSpaces(str + 1);
+        return 1 + Small(str + 1);
     }
     else
     {
-        return WhiteSpaces(str + 1);
+        return Small(str + 1);
     }
 }
 
@@ -43,15 +42,15 @@ int WhiteSpaces(char * str)
 
 int main()
 {
-    char arr[20];
+    char arr[] = {'\0'};
     int iRet = 0;
 
-    printf("Enter the String : ");
+    printf("Enter String : ");
     scanf("%[^\n]s",arr);
 
-    iRet = WhiteSpaces(arr);
+    iRet = Small(arr);
 
-    printf("number of WhiteSpsces are : %d\n",iRet);
+    printf("Number of small characters are : %d\n",iRet);
 
     return 0;
 }

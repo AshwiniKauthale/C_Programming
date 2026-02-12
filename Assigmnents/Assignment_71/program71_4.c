@@ -8,30 +8,38 @@
 
 //////////////////////////////////////////////////////////
 //
-//    Function Name :    WhiteSpaces
-//    Input :            string
+//    Function Name :    Min
+//    Input :            integer
 //    Output :           integer
-//    Description :      Used to count  the number of whitwspacesr from string  using recursion
+//    Description :      Used to find out minimum digit from number using recursion
 //    Author :           Ashwini Vishnu Kauthale
 //    Data :             09/02/2026
 //
 //////////////////////////////////////////////////////////
 
-
-int WhiteSpaces(char * str)
+int Min(int iNo)
 {
-    if(*str == '\0')
+    if(iNo < 0)
     {
-        return 0;
+        iNo = -iNo;
     }
-    
-    if(*str == ' ')
+
+    if (iNo < 10)
     {
-        return 1 + WhiteSpaces(str + 1);
+        return iNo;
+    }
+
+    int iDigit = iNo % 10;
+
+    int iMinOfRest = Min(iNo / 10);
+
+    if (iDigit < iMinOfRest)
+    {
+        return iDigit;
     }
     else
     {
-        return WhiteSpaces(str + 1);
+        return iMinOfRest;
     }
 }
 
@@ -43,15 +51,15 @@ int WhiteSpaces(char * str)
 
 int main()
 {
-    char arr[20];
+    int iValue = 0;
     int iRet = 0;
 
-    printf("Enter the String : ");
-    scanf("%[^\n]s",arr);
+    printf("Enter Number : ");
+    scanf("%d",&iValue);
 
-    iRet = WhiteSpaces(arr);
+    iRet = Min(iValue);
 
-    printf("number of WhiteSpsces are : %d\n",iRet);
+    printf("Minimum number is : %d\n",iRet);
 
     return 0;
 }
