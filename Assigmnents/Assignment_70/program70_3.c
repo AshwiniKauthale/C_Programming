@@ -8,22 +8,26 @@
 
 //////////////////////////////////////////////////////////
 //
-//    Function Name :    Display
-//    Input :            integer number
-//    Output :           Display number in reverse order
-//    Description :      Used to display the number using recursion
+//    Function Name :    Strlen
+//    Input :            character
+//    Output :           integer
+//    Description :      Used to count  the number of character from string  using recursion
 //    Author :           Ashwini Vishnu Kauthale
 //    Data :             09/02/2026
 //
 //////////////////////////////////////////////////////////
 
-void Display(int iNo)
+
+int Strlen(char * str)
 {
-    if(iNo >= 1)
+
+    if(*str == '\0')
     {
-        printf("%d\t*\t",iNo);
-        iNo--;
-        Display(iNo);
+        return 0;
+    }
+    else
+    {
+        return 1 + Strlen(str + 1);
     }
 }
 
@@ -35,12 +39,15 @@ void Display(int iNo)
 
 int main()
 {
-    int iNo = 0;
+    char arr[20];
+    int iRet = 0;
 
-    printf("Enter the number : ");
-    scanf("%d",&iNo);
+    printf("Enter the String : ");
+    scanf("%s",arr);
 
-    Display(iNo);
+    iRet = Strlen(arr);
+
+    printf("number of character are : %d\n",iRet);
 
     return 0;
 }

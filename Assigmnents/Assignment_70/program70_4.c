@@ -8,22 +8,23 @@
 
 //////////////////////////////////////////////////////////
 //
-//    Function Name :    Display
-//    Input :            integer number
-//    Output :           Display number in reverse order
-//    Description :      Used to display the number using recursion
+//    Function Name :    Fact
+//    Input :            integer
+//    Output :           integer
+//    Description :      Used to find out the factorial of given number using recursion
 //    Author :           Ashwini Vishnu Kauthale
 //    Data :             09/02/2026
 //
 //////////////////////////////////////////////////////////
 
-void Display(int iNo)
+int iFact = 1;
+
+int Fact(int iNo)
 {
     if(iNo >= 1)
     {
-        printf("%d\t*\t",iNo);
-        iNo--;
-        Display(iNo);
+        iFact = iFact * iNo;
+        Fact(--iNo);
     }
 }
 
@@ -36,11 +37,14 @@ void Display(int iNo)
 int main()
 {
     int iNo = 0;
+    int iRet = 0;
 
-    printf("Enter the number : ");
+    printf("Enter the Number : ");
     scanf("%d",&iNo);
 
-    Display(iNo);
+    Fact(iNo);
+
+    printf("Factorial is : %d\n",iFact);
 
     return 0;
 }

@@ -8,22 +8,29 @@
 
 //////////////////////////////////////////////////////////
 //
-//    Function Name :    Display
+//    Function Name :    Sum
 //    Input :            integer number
-//    Output :           Display number in reverse order
-//    Description :      Used to display the number using recursion
+//    Output :           integer
+//    Description :      Used to summation of the number using recursion
 //    Author :           Ashwini Vishnu Kauthale
 //    Data :             09/02/2026
 //
 //////////////////////////////////////////////////////////
 
-void Display(int iNo)
+int Sum(int iNo)
 {
-    if(iNo >= 1)
+    if(iNo < 0)
     {
-        printf("%d\t*\t",iNo);
-        iNo--;
-        Display(iNo);
+        iNo = -iNo;
+    }
+    
+    if (iNo == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return (iNo % 10) + Sum(iNo / 10);
     }
 }
 
@@ -36,11 +43,14 @@ void Display(int iNo)
 int main()
 {
     int iNo = 0;
+    int iRet = 0;
 
     printf("Enter the number : ");
     scanf("%d",&iNo);
 
-    Display(iNo);
+    iRet = Sum(iNo);
+
+    printf("Summation is : %d\n",iRet);
 
     return 0;
 }

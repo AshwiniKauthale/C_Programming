@@ -8,22 +8,30 @@
 
 //////////////////////////////////////////////////////////
 //
-//    Function Name :    Display
-//    Input :            integer number
-//    Output :           Display number in reverse order
-//    Description :      Used to display the number using recursion
+//    Function Name :    Mult
+//    Input :            integer
+//    Output :           integer
+//    Description :      Used to find out multiplication of the digits  using recursion
 //    Author :           Ashwini Vishnu Kauthale
 //    Data :             09/02/2026
 //
 //////////////////////////////////////////////////////////
 
-void Display(int iNo)
+
+int Mult(int iNo)
 {
-    if(iNo >= 1)
+    if(iNo < 0)
     {
-        printf("%d\t*\t",iNo);
-        iNo--;
-        Display(iNo);
+        iNo = -iNo;
+    } 
+    
+    if(iNo < 10)
+    {
+        return iNo;
+    }
+    else
+    {
+        return (iNo % 10) * Mult(iNo / 10);
     }
 }
 
@@ -36,11 +44,14 @@ void Display(int iNo)
 int main()
 {
     int iNo = 0;
+    int iRet = 0;
 
-    printf("Enter the number : ");
+    printf("Enter the Number : ");
     scanf("%d",&iNo);
 
-    Display(iNo);
+    iRet = Mult(iNo);
+
+    printf("Multiplication is : %d\n",iRet);
 
     return 0;
 }
