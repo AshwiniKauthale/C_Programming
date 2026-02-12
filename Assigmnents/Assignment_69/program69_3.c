@@ -10,8 +10,8 @@
 //
 //    Function Name :    Display
 //    Input :            integer number
-//    Output :           Display number of times *
-//    Description :      Used to display the number of * using recursion
+//    Output :           Display number in reverse order
+//    Description :      Used to display the number using recursion
 //    Author :           Ashwini Vishnu Kauthale
 //    Data :             08/02/2026
 //
@@ -19,9 +19,14 @@
 
 void Display(int iNo)
 {
+    if(iNo < 0)
+    {
+        iNo = -iNo;
+    }
+    
     if(iNo >= 1)
     {
-        printf("*\t");
+        printf("%d\t",iNo);
         iNo--;
         Display(iNo);
     }
@@ -37,7 +42,7 @@ int main()
 {
     int iNo = 0;
 
-    printf("Number of star that you want to print : ");
+    printf("Enter the number : ");
     scanf("%d",&iNo);
 
     Display(iNo);
